@@ -649,4 +649,22 @@
     transform: translateY(0); /* Move to position */
 }
 
+.navbar-collapse {
+    background-color: white; /* Change this to any color you prefer */
+}
 
+.navbar-collapse.show {
+    background-color: white; /* Background when the menu is expanded */
+}
+
+/* Optional: Set background for individual nav links */
+.navbar-nav .nav-item .nav-link {
+    background-color: white; /* This ensures the links themselves have a background */
+}
+
+/* Mobile specific styles */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: white; /* Ensure this is visible for smaller screens */
+    }
+}
