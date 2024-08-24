@@ -181,3 +181,21 @@ $(document).ready(function(){
         autoplayTimeout: 3000
     });
 });
+
+
+// JavaScript to handle YouTube video modal behavior
+var videoModal = document.getElementById('videoModal');
+videoModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget; // Button that triggered the modal
+    var videoSrc = button.getAttribute('data-src'); // Extract the video URL from data-src
+
+    // Find the iframe and set its src to the video URL
+    var videoIframe = document.getElementById('video');
+    videoIframe.src = videoSrc + "?autoplay=1&rel=0"; // Add autoplay and rel=0 to improve the UX
+});
+
+// When the modal is closed, remove the src to stop the video from playing
+videoModal.addEventListener('hide.bs.modal', function () {
+    var videoIframe = document.getElementById('video');
+    videoIframe.src = ""; // Reset the iframe src when the modal is hidden
+});
