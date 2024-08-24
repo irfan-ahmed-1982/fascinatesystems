@@ -34,14 +34,69 @@
 </head>
 
 <body>
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-            <span class="sr-only">Loading...</span>
-        </div>
+    <!-- Loader Start -->
+<div id="spinner"
+    class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="cube-loader">
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
+        <div class="cube"></div>
     </div>
-    <!-- Spinner End -->
+</div>
+<!-- Loader End -->
+
+<style>
+    .cube-loader {
+        width: 40px;
+        height: 40px;
+        position: relative;
+        transform: rotateZ(45deg);
+    }
+
+    .cube {
+        width: 20px;
+        height: 20px;
+        background-color: #007bff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        animation: cube-loader 1.8s infinite ease-in-out;
+    }
+
+    .cube:nth-child(2) {
+        top: auto;
+        bottom: 0;
+        animation-delay: 0.3s;
+    }
+
+    .cube:nth-child(3) {
+        top: auto;
+        bottom: 0;
+        left: auto;
+        right: 0;
+        animation-delay: 0.6s;
+    }
+
+    .cube:nth-child(4) {
+        top: 0;
+        left: auto;
+        right: 0;
+        animation-delay: 0.9s;
+    }
+
+    @keyframes cube-loader {
+        0%, 10% {
+            transform: scale(1);
+        }
+        40% {
+            transform: scale(0.6);
+        }
+        80%, 100% {
+            transform: scale(1);
+        }
+    }
+</style>
 
     <!-- Topbar Start -->
     <div class="container-fluid d-none d-lg-block top-bar">
