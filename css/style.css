@@ -4,7 +4,23 @@
     --secondary: #FF4917;
     --light: #EDF1FC;
     --dark: #25623F;
+    --verylight: #DFF0ED;
 }
+
+.bg-dark {
+    background-color: var(--dark) !important; /* Your dark green color */
+}
+
+.bg-primary {
+    background-color: var(--dark) !important; /* Or replace with your custom color */
+}
+
+.bg-light {
+    background-color: var(--verylight) !important; /* Or replace with your custom color */
+}
+
+
+
 
 .text-white-custom {
     color: white;
@@ -633,12 +649,13 @@
 .footer .copyright {
     padding: 25px 0;
     font-size: 15px;
-    border-top: 1px var(--dark);
+    border-top: 1px var(--light);
 }
 
 .footer .copyright a {
     color: var(--light);
 }
+
 
 .owl-carousel .owl-item img {
     transform: translateY(100%); /* Start off-screen (bottom) */
@@ -649,19 +666,20 @@
     transform: translateY(0); /* Move to position */
 }
 
+
 .navbar-collapse {
     background-color: white; /* Change this to any color you prefer */
 }
 
 .navbar-collapse.show {
     background-color: white; /* Background when the menu is expanded */
-    padding: 10px 20px; /* Adjust the padding for the links */
-    margin: 5px 0; /* Optional: Add some space between items */
 }
 
 /* Optional: Set background for individual nav links */
 .navbar-nav .nav-item .nav-link {
     background-color: white; /* This ensures the links themselves have a background */
+    padding: 10px 20px; /* Adjust the padding for the links */
+    margin: 5px 0; /* Optional: Add some space between items */
 }
 
 /* Mobile specific styles */
