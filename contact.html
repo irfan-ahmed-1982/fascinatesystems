@@ -245,38 +245,81 @@
                 </div>
                 <div class="col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="bg-light p-5 h-100 d-flex align-items-center">
-                        <form>
+                        <div class="bg-light text-center p-5">
+                            <h1 class="mb-4">Book For A Service</h1>
+                        <form id="serviceForm">
                             <div class="row g-3">
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                        <label for="name">Your Name</label>
-                                    </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" id="name" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                        <label for="email">Your Email</label>
-                                    </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" id="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                        <label for="subject">Subject</label>
-                                    </div>
+                                <div class="col-12 col-sm-6">
+                                    <select id="service" class="form-select border-0" style="height: 55px;" required>
+                                        <option selected>Select A Service</option>
+                                        <option value="Modular Furniture">Modular Furniture</option>
+                                        <option value="False Ceiling">False Ceiling</option>
+                                        <option value="Painting">Painting</option>
+                                        <option value="Shower Cubicle">Shower Cubicle</option>
+                                        <option value="Others">Others</option>
+                                    </select>
                                 </div>
-                                <div class="col-12">
-                                    <div class="form-floating">
-                                        <textarea class="form-control" placeholder="Leave a message here" id="message"
-                                            style="height: 150px"></textarea>
-                                        <label for="message">Message</label>
+                                <div class="col-12 col-sm-6">
+                                    <div class="date" id="date1" data-target-input="nearest">
+                                        <input type="text" id="date" class="form-control border-0 datetimepicker-input"
+                                            placeholder="Service Date" data-target="#date1" data-toggle="datetimepicker" style="height: 55px;" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                    <textarea id="request" class="form-control border-0" placeholder="Special Request"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-primary w-100 py-3" type="button" onclick="sendWhatsApp()">Book Now</button>
                                 </div>
                             </div>
                         </form>
+
+                        <script>
+                            function sendWhatsApp() {
+                                // Get form values
+                                var name = document.getElementById("name").value.trim();
+                    var email = document.getElementById("email").value.trim();
+                    var service = document.getElementById("service").value;
+                    var date = document.getElementById("date").value.trim();
+                    var request = document.getElementById("request").value.trim();
+                
+                    // Email validation regex
+                    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+                
+                    // Validate form
+                    if (name === "") {
+                        alert("Please enter your name.");
+                        return false;
+                    }
+                    if (!emailPattern.test(email)) {
+                        alert("Please enter a valid email address.");
+                        return false;
+                    }
+                    if (service === "") {
+                        alert("Please select a service.");
+                        return false;
+                    }
+                    if (date === "") {
+                        alert("Please select a service date.");
+                        return false;
+                    }
+                
+                    // If form is valid, prepare the WhatsApp message
+                    var message = `Hello, I would like to book a service. Details:\n\nName: ${name}\nEmail: ${email}\nService: ${service}\nService Date: ${date}\nSpecial Request: ${request}`;
+                
+                    // WhatsApp URL with phone number and message
+                    var url = `https://wa.me/919573027944?text=${encodeURIComponent(message)}`;
+                
+                    // Redirect to WhatsApp
+                    window.open(url, '_blank');
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
