@@ -181,6 +181,10 @@
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link.active {
+    text-decoration: underline;
+    text-decoration-thickness: 5px;
+    text-underline-offset: 3px;
+    color: inherit; /* Keep the original color */
     color: var(--primary);
 }
 
