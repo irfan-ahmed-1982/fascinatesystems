@@ -185,7 +185,7 @@
     text-decoration-thickness: 5px;
     text-underline-offset: 3px;
     color: inherit; /* Keep the original color */
-    color: var(--primary);
+    color: var(--dark);
 }
 
 @media (max-width: 991.98px) {
