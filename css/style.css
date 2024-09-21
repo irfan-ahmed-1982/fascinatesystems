@@ -291,7 +291,7 @@
     margin: 7px 0;
     width: 45px;
     height: 45px;
-    display: flex;
+    display: inline-block;
     align-items: center;
     justify-content: center;
     color: #FFFFFF;
